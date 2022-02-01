@@ -3,10 +3,10 @@ package com.imtiaz.movieslist.Retrofit;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.imtiaz.movieslist.Listeners.OnDetailsApiListener;
 import com.imtiaz.movieslist.Listeners.OnSearchApiListener;
-import com.imtiaz.movieslist.Model.MoviesInfoModel;
-
-import java.util.List;
+import com.imtiaz.movieslist.Model.MovieDetailsApiResponse;
+import com.imtiaz.movieslist.Model.SearchMoviesModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,21 +40,25 @@ public class ApiController {
         return controller;
     }
 
-    public moviesApi getMoviesApi(){
-        return retrofit.create(moviesApi.class);
+    public getMoviesApi getMoviesApi(){
+        return retrofit.create(getMoviesApi.class);
     }
 
-    //method for process the data
+    public getMovieDetailsApi getMovieDetailsApi(){
+        return retrofit.create(getMovieDetailsApi.class);
+    }
+
+    //method for Searching process the data
     public void searchMovies(OnSearchApiListener listener, String movie_name){
-        Call<MoviesInfoModel> call = ApiController
+        Call<SearchMoviesModel> call = ApiController
                                         .getInstance()
                                         .getMoviesApi()
                                         .getMovies(movie_name);
 
 
-        call.enqueue(new Callback<MoviesInfoModel>() {
+        call.enqueue(new Callback<SearchMoviesModel>() {
             @Override
-            public void onResponse(Call<MoviesInfoModel> call, Response<MoviesInfoModel> response) {
+            public void onResponse(Call<SearchMoviesModel> call, Response<SearchMoviesModel> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(mContext, "couldn't fetch data!!!", Toast.LENGTH_SHORT).show();
                     return;
@@ -63,13 +67,37 @@ public class ApiController {
             }
 
             @Override
-            public void onFailure(Call<MoviesInfoModel> call, Throwable t) {
+            public void onFailure(Call<SearchMoviesModel> call, Throwable t) {
                 listener.onError(t.getMessage());
             }
         });
 
     }
 
+    //method for Searching movie details process the data
+    public void searchMovieDetails(OnDetailsApiListener listener, String movie_id){
+        Call<MovieDetailsApiResponse> call = ApiController
+                .getInstance()
+                .getMovieDetailsApi()
+                .getMoviesDetails(movie_id);
 
+
+        call.enqueue(new Callback<MovieDetailsApiResponse>() {
+            @Override
+            public void onResponse(Call<MovieDetailsApiResponse> call, Response<MovieDetailsApiResponse> response) {
+                if(!response.isSuccessful()){
+                    Toast.makeText(mContext, "couldn't fetch data!!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                listener.onResponse(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<MovieDetailsApiResponse> call, Throwable t) {
+                listener.onError(t.getMessage());
+            }
+        });
+
+    }
 
 }

@@ -1,6 +1,6 @@
 package com.imtiaz.movieslist.Model;
 
-public class MoviesInfoModelObject {
+public class SearchMoviesModelObject {
     private String title = "";
     private String image = "";
     private String id = "";

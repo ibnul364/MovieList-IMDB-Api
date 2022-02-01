@@ -12,7 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.imtiaz.movieslist.Listeners.OnMovieClickListener;
-import com.imtiaz.movieslist.Model.MoviesInfoModelObject;
+import com.imtiaz.movieslist.Model.SearchMoviesModelObject;
 import com.imtiaz.movieslist.R;
 import com.squareup.picasso.Picasso;
 
@@ -21,10 +21,10 @@ import java.util.List;
 public class IndexRecyclerAdapter extends RecyclerView.Adapter<CustomViewHolder>{
 
     Context context;
-    List<MoviesInfoModelObject> listOfObject;
+    List<SearchMoviesModelObject> listOfObject;
     OnMovieClickListener listener;
 
-    public IndexRecyclerAdapter(Context context, List<MoviesInfoModelObject> listOfObject, OnMovieClickListener listener) {
+    public IndexRecyclerAdapter(Context context, List<SearchMoviesModelObject> listOfObject, OnMovieClickListener listener) {
         this.context = context;
         this.listOfObject = listOfObject;
         this.listener = listener;
@@ -39,6 +39,7 @@ public class IndexRecyclerAdapter extends RecyclerView.Adapter<CustomViewHolder>
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.textView_MovieName.setText(listOfObject.get(position).getTitle());
+        holder.textView_MovieName.setSelected(true);
         Picasso.get().load(listOfObject.get(position).getImage()).into(holder.imageView_MoviePoster);
 
         holder.index_container.setOnClickListener(new View.OnClickListener() {

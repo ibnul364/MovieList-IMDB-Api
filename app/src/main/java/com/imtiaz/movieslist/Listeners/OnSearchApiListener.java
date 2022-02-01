@@ -1,8 +1,8 @@
 package com.imtiaz.movieslist.Listeners;
 
-import com.imtiaz.movieslist.Model.MoviesInfoModel;
+import com.imtiaz.movieslist.Model.SearchMoviesModel;
 
 public interface OnSearchApiListener {
-    void onResponse(MoviesInfoModel response);
+    void onResponse(SearchMoviesModel response);
     void onError(String message);
 }
