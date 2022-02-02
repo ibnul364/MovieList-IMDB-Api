@@ -33,7 +33,7 @@
         android:layout_margin="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/RedNetflix">
+        app:cardBackgroundColor="@color/black">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_index"
             android:layout_width="match_parent"

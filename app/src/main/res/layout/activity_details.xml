@@ -53,13 +53,41 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <WebView
+                        android:id="@+id/webView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:ignore="WebViewLayout" />
+                    <TextView
+                        android:id="@+id/textView_movie_trailer_link"
+                        android:padding="8dp"
+                        android:textStyle="normal"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/RedNetflix"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView_movie_name"
                         android:text="Movie Name"
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         android:textSize="24sp"
                         android:padding="8dp"
                         android:textStyle="bold"
@@ -69,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/textView_movie_released_time"
                         android:text=""
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         android:textSize="18sp"
                         android:padding="8dp"
                         android:textStyle="normal"
@@ -79,7 +107,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/textView_movie_runtime"
                         android:text=""
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         android:textSize="18sp"
                         android:padding="8dp"
                         android:textStyle="normal"
