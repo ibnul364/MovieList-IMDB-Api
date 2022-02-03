@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.imtiaz.movieslist.Listeners.OnMovieClickListener;
 import com.imtiaz.movieslist.Listeners.OnSearchApiListener;
 import com.imtiaz.movieslist.Model.SearchMoviesModel;
-import com.imtiaz.movieslist.RecyclerViewAdapter.IndexRecyclerAdapter;
+import com.imtiaz.movieslist.Adapter.IndexRecyclerAdapter;
 import com.imtiaz.movieslist.Retrofit.ApiController;
 
 public class MainActivity extends AppCompatActivity implements OnMovieClickListener {

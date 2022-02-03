@@ -1,4 +1,4 @@
-package com.imtiaz.movieslist.RecyclerViewAdapter;
+package com.imtiaz.movieslist.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

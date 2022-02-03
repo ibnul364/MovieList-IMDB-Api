@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/imtia/AndroidStudioProjects/MoviesList/app/src/main/res/layout/activity_details.xml" value="0.1" />
+        <entry key="..\:/Users/imtia/AndroidStudioProjects/MoviesList/app/src/main/res/layout/activity_details.xml" value="0.33" />
         <entry key="..\:/Users/imtia/AndroidStudioProjects/MoviesList/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Users/imtia/AndroidStudioProjects/MoviesList/app/src/main/res/layout/index_item.xml" value="0.25" />
         <entry key="..\:/Users/imtia/AndroidStudioProjects/MoviesList/app/src/main/res/layout/movie_cast_list.xml" value="0.33" />
+        <entry key="..\:/Users/imtia/AndroidStudioProjects/MoviesList/app/src/main/res/layout/technical_specs_list.xml" value="0.25" />
       </map>
     </option>
   </component>

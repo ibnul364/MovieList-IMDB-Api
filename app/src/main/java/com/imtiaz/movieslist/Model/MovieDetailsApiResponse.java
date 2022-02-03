@@ -11,9 +11,9 @@ public class MovieDetailsApiResponse {
     String rating_votes = "";
     String poster = "";
     String plot = "";
-    Trailer trailer;
-    List<Cast> cast;
-    List<List<String>> technical_specs;
+    Trailer trailer = null;
+    List<Cast> cast = null;
+    List<List<String>> technical_specs = null;
 
     public String getId() {
         return id;

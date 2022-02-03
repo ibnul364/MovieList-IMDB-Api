@@ -1,12 +1,8 @@
 package com.imtiaz.movieslist;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -15,19 +11,20 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
+import com.imtiaz.movieslist.Adapter.DetailsSpecRecyclerAdapter;
 import com.imtiaz.movieslist.Listeners.OnDetailsApiListener;
 import com.imtiaz.movieslist.Model.MovieDetailsApiResponse;
-import com.imtiaz.movieslist.RecyclerViewAdapter.DetailsCastRecyclerAdapter;
+import com.imtiaz.movieslist.Adapter.DetailsCastRecyclerAdapter;
 import com.imtiaz.movieslist.Retrofit.ApiController;
 import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {
     TextView textView_movie_name,textView_movie_released_time,textView_movie_runtime,textView_movie_rating,textView_movie_votes,textView_movie_plot,textView_movie_trailer_link;
     ImageView imageView_movie_poster;
-    RecyclerView recycler_movie_cast;
+    RecyclerView recycler_movie_cast,recycler_movie_ts_cast;
     DetailsCastRecyclerAdapter adapter;
+    DetailsSpecRecyclerAdapter adapter2;
     ApiController apiController;
     ProgressDialog dialog;
     WebView webView;
@@ -45,6 +42,7 @@ public class DetailsActivity extends AppCompatActivity {
         imageView_movie_poster = findViewById(R.id.imageView_movie_poster);
         textView_movie_trailer_link = findViewById(R.id.textView_movie_trailer_link);
         recycler_movie_cast = findViewById(R.id.recycler_movie_cast);
+        recycler_movie_ts_cast = findViewById(R.id.recycler_movie_ts_cast);
         webView = findViewById(R.id.webView);
 
         apiController = new ApiController(this);
@@ -98,8 +96,6 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
-
-
         try{
             Picasso.get().load(response.getPoster()).into(imageView_movie_poster);
         }catch(Exception e){
@@ -110,6 +106,11 @@ public class DetailsActivity extends AppCompatActivity {
         recycler_movie_cast.setLayoutManager(new GridLayoutManager(this,1));
         adapter = new DetailsCastRecyclerAdapter(this,response.getCast());
         recycler_movie_cast.setAdapter(adapter);
+
+        recycler_movie_ts_cast.setHasFixedSize(true);
+        recycler_movie_ts_cast.setLayoutManager(new GridLayoutManager(this,1));
+        adapter2 = new DetailsSpecRecyclerAdapter(this,response.getTechnical_specs());
+        recycler_movie_ts_cast.setAdapter(adapter2);
 
     }
 
